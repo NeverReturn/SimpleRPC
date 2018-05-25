@@ -1,0 +1,60 @@
+#ignore target under current directory and all subdirectories:
+target/ 
+*/target/
+test-output/
+*/test-output/
+
+#ignore settings & gitignore file
+.settings/
+*/.settings/
+.springBeans
+*/.springBeans
+
+#ignore svn files
+.svn
+*/.svn
+
+.project
+
+*/.project
+
+.classpath
+*/.classpath
+
+.data
+*/.data
+*.data
+biz-server/data/
+
+#ignore sample fils
+sample/
+
+.idea
+*.iml
+
+#ignore searcher/logs
+searcher/logs/
+
+#ignore .DS_Store
+.DS_Store
+*/.DS_Store
+
+#ignore .pyc
+*.pyc
+
+*/session/
+*.log
+pid
+
+#ignore ctags
+tags
+
+#ignore vim swap files.
+*.swp
+*.swo
+*.swn
+
+highlighter/dependency-reduced-pom.xml
+lucene-core/dependency-reduced-pom.xml
+#generated git properties file.
+git.properties
