@@ -24,7 +24,7 @@ test-output/
 .data
 */.data
 *.data
-biz-server/data/
+biz-com.huanhuan.rpc.server/data/
 
 #ignore sample fils
 sample/
