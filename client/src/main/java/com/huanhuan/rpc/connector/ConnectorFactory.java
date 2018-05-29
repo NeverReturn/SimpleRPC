@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.RetryNTimes;
+import org.apache.zookeeper.CreateMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,5 +45,9 @@ public class ConnectorFactory {
         int port = jsonObject.getInteger("port");
         Connector connector = new Connector(ip, port);
         return connector;
+    }
+
+    public static void register(String data) throws Exception {
+        client.create().withMode(CreateMode.EPHEMERAL).forPath("/test", data.getBytes());
     }
 }

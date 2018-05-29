@@ -1,7 +1,9 @@
 package com.huanhuan.rpc.server;
 
+import com.alibaba.fastjson.JSONObject;
 import com.huanhuan.rpc.codec.ClientDecoder;
 import com.huanhuan.rpc.codec.ClientEncoder;
+import com.huanhuan.rpc.connector.ConnectorFactory;
 import com.huanhuan.rpc.model.SerialTypeEnum;
 import com.huanhuan.rpc.netty.RpcRequestHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -65,9 +67,15 @@ public class ServerFactory {
             ChannelFuture f = serverBootstrap.bind(port).sync();
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ip", "127.0.0.1");
+        jsonObject.put("port", 8081);
+        ConnectorFactory.register(jsonObject.toJSONString());
     }
 }
